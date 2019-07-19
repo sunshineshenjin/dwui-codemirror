@@ -1,0 +1,55 @@
+{
+  "name": "dwui-codemirror",
+  "title": "dwui-codemirror",
+  "version": "1.0.4",
+  "description": "基于codemirror和vue的深度定制业务组件",
+  "main": "dist/dwui-codemirror.js",
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "package": "vue-cli-service build --target lib --formats=umd-min --name dwui-codemirror ./index.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lib": "npm publish --access public"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-plugin-eslint": "^3.2.0",
+    "@vue/cli-service": "^3.2.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunshineshenjin/dwui-codemirror.git"
+  },
+  "keywords": [
+    "vue",
+    "codemirror",
+    "dwui",
+    "change",
+    "wrapper ui"
+  ],
+  "author": "shenjin@dxy.cn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunshineshenjin/dwui-codemirror/issues"
+  },
+  "homepage": "https://github.com/sunshineshenjin/dwui-codemirror#readme",
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
