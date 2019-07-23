@@ -1,7 +1,7 @@
 {
   "name": "dwui-codemirror",
   "title": "dwui-codemirror",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "基于codemirror和vue的深度定制业务组件",
   "main": "dist/dwui-codemirror.js",
   "scripts": {

@@ -71,9 +71,14 @@
   }
 
   function match(string, word) {
-    var len = string.length;
-    var sub = getText(word).substr(0, len);
-    return string.toUpperCase() === sub.toUpperCase();
+    // 如果string 不为空则在匹配
+    if (string && string.toString().trim().length > 0) {
+        var len = string.toString().trim().length;
+        var sub = getText(word).substr(0, len);
+        return string.trim().toUpperCase() === sub.toUpperCase();
+    } else {
+      return false
+    }
   }
 
   function addMatches(result, search, wordlist, formatter) {
@@ -120,7 +125,6 @@
   }
 
   function nameCompletion(cur, token, result, editor) {
-    debugger
     // Try to complete table, column names and return start position of completion
     var useIdentifierQuotes = false;
     var nameParts = [];
@@ -259,9 +263,8 @@
 
     var cur = editor.getCursor();
     var result = [];
-      // debugger
-      var token = editor.getTokenAt(cur), start, end, search;
-    if (token.string === ' ') {
+    var token = editor.getTokenAt(cur), start, end, search;
+    if (token.string === ' ' || token.string === '') {
       return {list: result};
     }
     if (token.end > cur.ch) {
@@ -302,8 +305,10 @@
       addMatches(result, search, keywords, function(w) {
           return objectOrClass(w.toUpperCase(), "CodeMirror-hint-keyword");
       });
-  }
-
+    }
+    if (result.length === 1 && result[0].text.toUpperCase() === token.string.toUpperCase()) {
+      return {list: []};
+    }
     return {list: result, from: Pos(cur.line, start), to: Pos(cur.line, end)};
   });
 });

@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import './../codemirror-lib/codemirror/lib/codemirror.css'
 import './../codemirror-lib/codemirror/src/codemirror'
 import './../codemirror-lib/codemirror/src/modes'
 
@@ -91,13 +92,6 @@ export default {
   },
   methods: {
     onCursorActivity () {
-      let words = this.$refs.codemirror.cminstance.getValue() + ''
-      // 利用正则取出用户输入的所有的英文的字母
-      words = words.replace(/[a-z]+[\-|\']+[a-z]+/ig, '').match(/([a-z]+)/ig)
-      // 将获取到的用户的单词传入CodeMirror,并在javascript-hint中做匹配
-      console.info(words)
-      // CodeMirror.ukeys = words
-      // 调用显示提示
       this.$refs.codemirror.cminstance.showHint()
     }
   }

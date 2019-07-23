@@ -1,5 +1,5 @@
 <template>
-    <div class="vue-codemirror" :class="{ merge }">
+    <div class="dwui-codemirror" :class="{ merge }">
         <div ref="mergeview" v-if="merge"></div>
         <textarea ref="textarea" :name="name" :placeholder="placeholder" v-else></textarea>
     </div>
@@ -202,6 +202,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-    @import "./../codemirror-lib/codemirror/lib/codemirror.css";
-</style>
