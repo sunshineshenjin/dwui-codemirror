@@ -97,6 +97,9 @@ export default {
     }
   },
   methods: {
+    getOriginCodeMirror () {
+      return CodeMirror
+    },
     initialize () {
       const cmOptions = Object.assign({}, this.globalOptions, this.options)
       if (this.merge) {
